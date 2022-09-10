@@ -128,7 +128,7 @@ class Config(object):
     recv_chunk = 64 * 1024
     list_md5 = False
     long_listing = False
-    delete_after =False
+    delete_after_put =False
     human_readable_sizes = False
     extra_headers = SortedDict(ignore_case = True)
     force = False
@@ -549,7 +549,9 @@ class Config(object):
         # default it is set to None, and not present in the config file.
         if cp.get('acl_public'):
             self.update_option('acl_public', cp.get('acl_public'))
-
+        if cp.get('delete_after_put'):
+            self.update_option('delete_after_put',cp.get('delete_after_put'))
+            
         if cp.get('add_headers'):
             for option in cp.get('add_headers').split(","):
                 (key, value) = option.split(':', 1)
