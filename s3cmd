@@ -472,6 +472,8 @@ def cmd_object_put(args):
                 output(u"upload: '%s' -> '%s' (%d bytes in %0.1f seconds, %0.2f %sB/s) %s" %
                        (nicekey, uri_final, response["size"], response["elapsed"],
                         speed_fmt[0], speed_fmt[1], seq_label))
+        if Config().delete_after:
+            os.unlink(full_name)
         if Config().acl_public:
             output(u"Public URL of the object is: %s" %
                    (uri_final.public_url()))
