@@ -128,6 +128,7 @@ class Config(object):
     recv_chunk = 64 * 1024
     list_md5 = False
     long_listing = False
+    delete_after =False
     human_readable_sizes = False
     extra_headers = SortedDict(ignore_case = True)
     force = False
